@@ -3,8 +3,8 @@ function loadInventarioAll(){
         type:"GET",
         contentType: "application/json; charset=utf-8",
         datatype:"JSON",
-        //url:"http://150.230.41.201:80/api/supplements/all",
-        url:"http://localhost:8080/api/supplements/all",
+        url:"http://150.230.41.201:80/api/supplements/all",
+        //url:"http://localhost:8080/api/supplements/all",
         success:function(respuesta){
             console.log(respuesta);
             loadResponseInv(respuesta);
@@ -51,8 +51,8 @@ function saveNewItem(username) {
         contentType: "application/json; charset=utf-8",
         data:dataToSend,
         datatype:"JSON",
-        //url:"http://150.230.41.201:80/api/supplements/new",
-        url:"http://localhost:8080/api/supplements/new",
+        url:"http://150.230.41.201:80/api/supplements/new",
+        //url:"http://localhost:8080/api/supplements/new",
         success:function(respuesta){
             if (respuesta.reference != null) {
                 $("#reference").val("");
@@ -119,8 +119,8 @@ function saveEditUser(){
         data:dataToSend,
         contentType:"application/JSON",
         datatype:"JSON",
-        //url:"http://150.230.41.201:80/api/supplements/update",
-        url:"http://localhost:8080/api/supplements/update",
+        url:"http://150.230.41.201:80/api/supplements/update",
+        //url:"http://localhost:8080/api/supplements/update",
         success:function(respuesta){
             $("#reference").val("");
             $("#brand").val("");
@@ -142,8 +142,8 @@ function deleteItem(idElemento){
         type:"DELETE",
         contentType: "application/json; charset=utf-8",
         datatype:"JSON",
-        //url:"http://150.230.41.201:80/api/supplements/"+idElemento,
-        url:"http://localhost:8080/api/supplements/"+idElemento,
+        url:"http://150.230.41.201:80/api/supplements/"+idElemento,
+        //url:"http://localhost:8080/api/supplements/"+idElemento,
         success:function(respuesta){
             $("#resultado").empty();
             loadInventarioAll();
