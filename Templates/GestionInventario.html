@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GestionInventarioReto02Ciclo4</title>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+        <link type="text/css" href="/css/style_Base.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="/js/GestionUsuarios.js"></script>
+
+        <script>window.onload = function(){loadInventarioAll();}</script>
+
+    </head>
+    <body>
+        <div style="margin-bottom: 10px;"></div> <!-- Espacio -->
+
+        <!-- ************************* Sección - Titulo Modulo ********************************************************* -->
+        <div class="row g-0">
+            <div class="col-lg-2 bordeDivRojo" align="center">
+                <!-- Columna 1 Vacia -->
+            </div>
+
+            <div class="col-lg-2 bordeDivRojo" align="center">
+                <img src="/Imagenes/LogoTranparent.png" alt="" width="120" height="120">
+            </div>
+
+            <div class="col-lg-5 bordeDivRojo centrarDiv" align="center"> <!-- Columna 2 -->
+                <label style="font-size: 200%" class="txtBlanco letraHeaderFoot centrar">Gestión<span class="txtVerde"> de Inventario</span><span class="txtBlanco"> - Reto02 -</span><span class="txtVerde"> Ciclo04</span></label>
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo" align="left">
+                <!-- Columna 3 Vacia -->
+            </div>
+        </div>
+        <!-- ************************* Termina Sección - Titulo Modulo ************************************************* -->
+
+        <div style="margin-bottom: 10px;"></div> <!-- Espacio -->
+
+        <!-- ************************* Sección - Grilla **************************************************************** -->
+        <div class="row g-0 divInputSection">
+            <div class="col-lg-2 bordeDivRojo">
+                <!-- Columna 1 Vacia -->
+            </div>
+
+            <div class="col-lg-8 bordeDivRojo EfectoSombraTabla" style=" height: 200px; overflow: scroll;" align="center"> <!-- Columna 4 -->
+                <table id="tblInventario" name="tblUsuarios" class="table-hover" style="width:1000px">
+                    <thead>
+                        <tr class="encabezadotabla">
+                            <th scope="col" style="display: none;">Id:</th>
+                            <th scope="col">Referencia:</th>
+                            <th scope="col">Marca:</th>
+                            <th scope="col">Categoria:</th>
+                            <th scope="col">Objetivo:</th>
+                            <th scope="col">Descripción:</th>
+                            <th scope="col">Disponibilidad:</th>
+                            <th scope="col">Precio:</th>
+                            <th scope="col">Cantidad:</th>
+                            <th scope="col">Fotografia:</th>
+                            <th scope="col">Opciones:</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resultado">
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-lg-2 bordeDivRojo">
+                <!-- Columna 8 Vacia -->
+            </div>
+        </div>
+        <!-- ************************* Termina Sección - Grilla ******************************************************** -->
+
+        <div style="margin-bottom: 10px;"></div> <!-- Espacio -->
+
+        <!-- ************************* Sección - Inputs **************************************************************** -->
+        <div class="row g-0">
+            <div class="col-lg-3 bordeDivRojo" align="center">
+                <div class="txtNaranjaBold bordeDivRojo" style="width: 40%; height: 25px" align="center">
+                    id oculto:
+                </div>
+
+                <div class="bordeDivRojo" style="width: 40%;" align="center">
+                    <input id="id" name="id" class="form-control" type="text" placeholder="ID">
+                </div>
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo" align="center">
+                <div class="txtNaranjaBold bordeDivRojo" style="width: 80%; height: 25px" align="left">
+                    Referencia:
+                </div>
+
+                <div class="bordeDivRojo" style="width: 80%;" align="center">
+                    <input id="brand" name="brand" class="form-control" type="text" placeholder="Digite la Referencia" required>
+                </div>
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo" align="center">
+                <div class="txtNaranjaBold bordeDivRojo" style="width: 80%; height: 25px" align="left">
+                    Marca:
+                </div>
+
+                <div class="bordeDivRojo" style="width: 80%;" align="center">
+                    <input id="brand" name="brand" class="form-control" type="text" placeholder="Digite Marca" required>
+                </div>
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo">
+                <!-- Columna 1 Vacia -->
+            </div>
+        </div>
+
+        <div style="margin-bottom: 10px;"></div> <!-- Espacio -->
+
+        <div class="row g-0">
+            <div class="col-lg-3 bordeDivRojo">
+                <!-- Columna 1 Vacia -->
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo" align="center">
+                <div class="txtNaranjaBold bordeDivRojo" style="width: 80%; height: 25px" align="left">
+                    Categoría:
+                </div>
+
+                <div class="bordeDivRojo" style="width: 80%;" align="center">
+                    <input id="category"  name="category" class="form-control" type="text" placeholder="Digite Categoría" required>
+                </div>
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo" align="center">
+                <div class="txtNaranjaBold bordeDivRojo" style="width: 80%; height: 25px" align="left">
+                    Objetivo:
+                </div>
+
+                <div class="bordeDivRojo" style="width: 80%;" align="center">
+                    <input id="objetivo" name="objetivo" class="form-control" type="text" placeholder="Digite objetivo" required>
+                </div>
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo">
+                <!-- Columna 1 Vacia -->
+            </div>
+        </div>
+
+        <div style="margin-bottom: 10px;"></div> <!-- Espacio -->
+
+        <div class="row g-0">
+            <div class="col-lg-3 bordeDivRojo">
+                <!-- Columna 1 Vacia -->
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo" align="center">
+                <div class="txtNaranjaBold bordeDivRojo" style="width: 80%; height: 25px" align="left">
+                    Descripción:
+                </div>
+
+                <div class="bordeDivRojo" style="width: 80%;" align="center">
+                    <input id="description" name="description" class="form-control" type="email" placeholder="Digite Descripción" required>
+                </div>
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo" align="center">
+                <div class="txtNaranjaBold bordeDivRojo" style="width: 80%; height: 25px" align="left">
+                    Disponibilidad:
+                </div>
+
+                <div class="bordeDivRojo" style="width: 80%;" align="center">
+                    <select id="availability" name="availability" class="form-select form-select-md mb-3" aria-label=".form-select-lg example" required>
+                        <option value="">--- Seleccione Disponibilidad ---</option>
+                        <option value="true">Disponible</option>
+                        <option value="false">No Disponible</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo">
+                <!-- Columna 1 Vacia -->
+            </div>
+        </div>
+
+        <div style="margin-bottom: 10px;"></div> <!-- Espacio -->
+
+        <div class="row g-0">
+            <div class="col-lg-3 bordeDivRojo">
+                <!-- Columna 1 Vacia -->
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo" align="center">
+                <div class="txtNaranjaBold bordeDivRojo" style="width: 80%; height: 25px" align="left">
+                    Precio:
+                </div>
+
+                <div class="bordeDivRojo" style="width: 80%;" align="center">
+                    <input id="price" name="price" class="form-control" type="number" placeholder="Digite Precio" required>
+                </div>
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo" align="center">
+                <div class="txtNaranjaBold bordeDivRojo" style="width: 80%; height: 25px" align="left">
+                    Cantidad:
+                </div>
+
+                <div class="bordeDivRojo" style="width: 80%;" align="center">
+                    <input id="quantity" name="quantity" class="form-control" type="number" placeholder="Digite Cantidad" required>
+                </div>
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo">
+                <!-- Columna 1 Vacia -->
+            </div>
+        </div>
+
+        <div style="margin-bottom: 10px;"></div> <!-- Espacio -->
+
+        <div class="row g-0">
+            <div class="col-lg-3 bordeDivRojo">
+                <!-- Columna 1 Vacia -->
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo" align="center">
+                <div class="txtNaranjaBold bordeDivRojo" style="width: 80%; height: 25px" align="left">
+                    Fotografía:
+                </div>
+
+                <div class="bordeDivRojo" style="width: 80%;" align="center">
+                    <input id="photography" name="photography" class="form-control" type="text" placeholder="Url Fotografía" required>
+                </div>
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo" align="center">
+                <div class="txtNaranjaBold bordeDivRojo" style="width: 80%; height: 25px" align="left">
+
+                </div>
+
+                <div class="bordeDivRojo" style="width: 80%;" align="center">
+
+                </div>
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo">
+                <!-- Columna 1 Vacia -->
+            </div>
+        </div>
+        <!-- ************************* Termina Sección - Inputs ******************************************************** -->
+
+        <div style="margin-bottom: 20px;"></div> <!-- Espacio -->
+
+        <!-- *************************** Sección - Botones ************************************************************* -->
+        <div class="row g-0 bordeDivRojo">
+            <div class="col-lg-3 bordeDivRojo">
+                <!-- Columna 1 Vacia -->
+            </div>
+
+            <div class="col-lg-2 bordeDivRojo" align="center"> <!-- Columna 2 -->
+                <a onclick="saveNewItem()" class="btn btn-primary" style="width:70%">Guardar Nuevo Item</a>
+                <div style="margin-bottom: 20px;"></div> <!-- Espacio -->
+            </div>
+
+            <div class="col-lg-2 bordeDivRojo" align="center"> <!-- Columna 2 -->
+                <a onclick="saveEditUser()" class="btn btn-warning" style="width:70%">Actualizar Item</a>
+                <div style="margin-bottom: 20px;"></div> <!-- Espacio -->
+            </div>
+
+            <div class="col-lg-2 bordeDivRojo" align="center"> <!-- Columna 2 -->
+                <a href="\templates\MenuPrincipal.html" class="btn btn-danger" style="width:70%">Cancelar</a>
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo">
+
+            </div>
+        </div>
+        <!-- *************************** Termina Sección - Botones ***************************************************** -->
+
+        <div style="margin-bottom: 10px;"></div> <!-- Espacio -->
+    </body>
+</html>

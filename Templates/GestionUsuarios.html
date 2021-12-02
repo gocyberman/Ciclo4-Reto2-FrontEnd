@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GestionUsuariosReto02Ciclo4</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+        rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+        crossorigin="anonymous">
+
+    <link type="text/css" href="/css/style_Base.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+    </script>
+
+    <script type="text/javascript" src="/js/GestionUsuarios.js"></script>
+
+    <script>
+        window.onload = function(){
+            loadUserAll();
+        }
+    </script>
+
+</head>
+    <body>
+        <div style="margin-bottom: 10px;"></div> <!-- Espacio -->
+
+        <!-- ************************* Sección - Titulo Modulo ********************************************************* -->
+        <div class="row g-0">
+            <div class="col-lg-2 bordeDivRojo" align="center">
+                <!-- Columna 1 Vacia -->
+            </div>
+
+            <div class="col-lg-2 bordeDivRojo" align="center">
+                <img src="/Imagenes/LogoTranparent.png" alt="" width="120" height="120">
+            </div>
+
+            <div class="col-lg-5 bordeDivRojo centrarDiv" align="center"> <!-- Columna 2 -->
+                <label style="font-size: 200%" class="txtBlanco letraHeaderFoot centrar">Gestión<span class="txtVerde"> de Usuarios</span><span class="txtBlanco"> - Reto02 -</span><span class="txtVerde"> Ciclo04</span></label>
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo" align="left">
+                <!-- Columna 3 Vacia -->
+            </div>
+        </div>
+        <!-- ************************* Termina Sección - Titulo Modulo ************************************************* -->
+
+        <div style="margin-bottom: 10px;"></div> <!-- Espacio -->
+
+        <!-- ************************* Sección - Grilla **************************************************************** -->
+        <div class="row g-0 divInputSection">
+            <div class="col-lg-2 bordeDivRojo">
+                <!-- Columna 1 Vacia -->
+            </div>
+
+            <div class="col-lg-8 bordeDivRojo EfectoSombraTabla" style=" height: 200px; overflow: scroll;" align="center"> <!-- Columna 4 -->
+                <table id="tblUsuarios" name="tblUsuarios" class="table-hover" style="width:1000px">
+                    <thead>
+                        <tr class="encabezadotabla">
+                            <th scope="col" style="display: none;">Id:</th>
+                            <th scope="col">Identificación:</th>
+                            <th scope="col">Nombre:</th>
+                            <th scope="col">Dirección:</th>
+                            <th scope="col">Celular:</th>
+                            <th scope="col">Email:</th>
+                            <th scope="col">Zona:</th>
+                            <th scope="col">Tipo Usuario:</th>
+                            <th scope="col">Opciones:</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resultado">
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-lg-2 bordeDivRojo">
+                <!-- Columna 8 Vacia -->
+            </div>
+        </div>
+        <!-- ************************* Termina Sección - Grilla ******************************************************** -->
+
+        <div style="margin-bottom: 15px;"></div> <!-- Espacio -->
+
+        <!-- ************************* Sección - Inputs **************************************************************** -->
+        <div class="row g-0">
+            <div class="col-lg-3 bordeDivRojo" align="center">
+                <div class="txtNaranjaBold bordeDivRojo" style="width: 40%; height: 25px" align="center">
+                    id oculto:
+                </div>
+
+                <div class="bordeDivRojo" style="width: 40%;" align="center">
+                    <input id="id" name="id" class="form-control" type="text" placeholder="ID">
+                </div>
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo" align="center">
+                <div class="txtNaranjaBold bordeDivRojo" style="width: 80%; height: 25px" align="left">
+                    Número Identificación:
+                </div>
+
+                <div class="bordeDivRojo" style="width: 80%;" align="center">
+                    <input id="identification" name="identification" class="form-control" type="text" placeholder="Digite El Número de Identificación" required>
+                </div>
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo" align="center">
+                <div class="txtNaranjaBold bordeDivRojo" style="width: 80%; height: 25px" align="left">
+                    Nombre:
+                </div>
+
+                <div class="bordeDivRojo" style="width: 80%;" align="center">
+                    <input id="name" name="name" class="form-control" type="text" placeholder="Digite Nombre" required>
+                </div>
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo">
+                <!-- Columna 1 Vacia -->
+            </div>
+        </div>
+
+        <div style="margin-bottom: 15px;"></div> <!-- Espacio -->
+
+        <div class="row g-0">
+            <div class="col-lg-3 bordeDivRojo">
+                <!-- Columna 1 Vacia -->
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo" align="center">
+                <div class="txtNaranjaBold bordeDivRojo" style="width: 80%; height: 25px" align="left">
+                    Dirección:
+                </div>
+
+                <div class="bordeDivRojo" style="width: 80%;" align="center">
+                    <input id="address"  name="address" class="form-control" type="text" placeholder="Digite Nombre" required>
+                </div>
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo" align="center">
+                <div class="txtNaranjaBold bordeDivRojo" style="width: 80%; height: 25px" align="left">
+                    Celular:
+                </div>
+
+                <div class="bordeDivRojo" style="width: 80%;" align="center">
+                    <input id="cellPhone" name="cellPhone" class="form-control" type="text" placeholder="Digite Celular" required>
+                </div>
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo">
+                <!-- Columna 1 Vacia -->
+            </div>
+        </div>
+
+        <div style="margin-bottom: 15px;"></div> <!-- Espacio -->
+
+        <div class="row g-0">
+            <div class="col-lg-3 bordeDivRojo">
+                <!-- Columna 1 Vacia -->
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo" align="center">
+                <div class="txtNaranjaBold bordeDivRojo" style="width: 80%; height: 25px" align="left">
+                    Email:
+                </div>
+
+                <div class="bordeDivRojo" style="width: 80%;" align="center">
+                    <input id="email" name="email" class="form-control" type="email" placeholder="Digite Email" required>
+                </div>
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo" align="center">
+                <div class="txtNaranjaBold bordeDivRojo" style="width: 80%; height: 25px" align="left">
+                    Contraseña:
+                </div>
+
+                <div class="bordeDivRojo" style="width: 80%;" align="center">
+                    <input id="password" name="password" class="form-control" type="password" placeholder="Digite la Contraseña" required>
+                </div>
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo">
+                <!-- Columna 1 Vacia -->
+            </div>
+        </div>
+
+        <div style="margin-bottom: 15px;"></div> <!-- Espacio -->
+
+        <div class="row g-0">
+            <div class="col-lg-3 bordeDivRojo">
+                <!-- Columna 1 Vacia -->
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo" align="center">
+                <div class="txtNaranjaBold bordeDivRojo" style="width: 80%; height: 25px" align="left">
+                    Email:
+                </div>
+
+                <div class="bordeDivRojo" style="width: 80%;" align="center">
+                    <input id="email" name="email" class="form-control" type="email" placeholder="Digite Email" required>
+                </div>
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo" align="center">
+                <div class="txtNaranjaBold bordeDivRojo" style="width: 80%; height: 25px" align="left">
+                    Contraseña:
+                </div>
+
+                <div class="bordeDivRojo" style="width: 80%;" align="center">
+                    <input id="password" name="password" class="form-control" type="password" placeholder="Digite la Contraseña" required>
+                    <div class="bordeDivRojo txtBlanco" align="left">
+                        La contraseña debe tener mínimo 6 caracteres
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo">
+                <!-- Columna 1 Vacia -->
+            </div>
+        </div>
+
+        <div style="margin-bottom: 15px;"></div> <!-- Espacio -->
+
+        <div class="row g-0">
+            <div class="col-lg-3 bordeDivRojo">
+                <!-- Columna 1 Vacia -->
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo" align="center">
+                <div class="txtNaranjaBold bordeDivRojo" style="width: 80%; height: 25px" align="left">
+                    Tipo Usuario:
+                </div>
+
+                <div class="bordeDivRojo" style="width: 80%;" align="center">
+                    <select id="type" name="type" class="form-select form-select-md mb-3" aria-label=".form-select-lg example" required>
+                        <option value="">--- Seleccione Tipo Usuario ---</option>
+                        <option value="CoordinadorZona">Coordinador de Zona</option>
+                        <option value="AsesorComercial">Asesor Comercial</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo" align="center">
+                <div class="txtNaranjaBold bordeDivRojo" style="width: 80%; height: 25px" align="left">
+                    Zona:
+                </div>
+
+                <div class="bordeDivRojo" style="width: 80%;" align="center">
+                    <select id="zone" name="zone" class="form-select form-select-sd mb-3" aria-label=".form-select-lg example" required>
+                        <option value="">--- Seleccione Zona ---</option>
+                        <option value="1">ZONA 1</option>
+                        <option value="2">ZONA 2</option>
+                        <option value="3">ZONA 3</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo">
+                <!-- Columna 1 Vacia -->
+            </div>
+        </div>
+        <!-- ************************* Termina Sección - Inputs ******************************************************** -->
+
+        <div style="margin-bottom: 10px;"></div> <!-- Espacio -->
+
+        <!-- *************************** Sección - Botones ************************************************************* -->
+        <div class="row g-0 bordeDivRojo">
+            <div class="col-lg-3 bordeDivRojo">
+                <!-- Columna 1 Vacia -->
+            </div>
+
+            <div class="col-lg-2 bordeDivRojo" align="center"> <!-- Columna 2 -->
+                <a onclick="saveNewUser()" class="btn btn-primary" style="width:70%">Guardar Nuevo Usuario</a>
+                <div style="margin-bottom: 20px;"></div> <!-- Espacio -->
+            </div>
+
+            <div class="col-lg-2 bordeDivRojo" align="center"> <!-- Columna 2 -->
+                <a onclick="saveEditUser()" class="btn btn-warning" style="width:70%">Actualizar Usuario</a>
+                <div style="margin-bottom: 20px;"></div> <!-- Espacio -->
+            </div>
+
+            <div class="col-lg-2 bordeDivRojo" align="center"> <!-- Columna 2 -->
+                <a href="\templates\MenuPrincipal.html" class="btn btn-danger" style="width:70%">Cancelar</a>
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo">
+
+            </div>
+        </div>
+        <!-- *************************** Termina Sección - Botones ***************************************************** -->
+    </body>
+</html>

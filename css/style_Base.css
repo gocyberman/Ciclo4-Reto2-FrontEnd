@@ -1,0 +1,178 @@
+    *{
+        margin: 0;
+        padding: 0;
+        /* font-family: "Avenir Next"; */
+    }
+
+    .img-fluid {
+        cursor: pointer;
+    }
+
+    .centrarVertical {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    body {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        width: auto;
+        height: auto;
+        background-image: url(/Imagenes/Fondo12.jpg);
+        background-size: cover;
+        background-attachment: fixed;
+        z-index: 2px;
+    }
+
+    .bordeDivRojo {border: 1px transparent red;}
+
+    .inputUsu {
+        color: black;
+        text-align: right;
+        width:70%;
+    }
+
+    .centrarDiv {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+/* +++++++++++++++++++++++++++++++++++ Inicia Colores Texto +++++++++++++++++++++++++++++++++++ */
+
+    .txtBlanco {color: white;}
+
+    .txtBlancoBold {color: white; font-weight : bold;}
+
+    .txtVerde {color: #00ac98;}
+
+    .txtVerdeBold {color: #00ac98; font-weight : bold;}
+
+    .txtAzul {color: blue;}
+
+    .txtAzulBold {color: rgb(0, 0, 189);font-weight : bold;}
+
+    .txtNaranja {color: #FFB233;}
+
+    .txtNaranjaBold {color: #FFB233;font-weight : bold;}
+
+    .txtRojo {color: rgba(255, 0, 0, 0.685);}
+
+    .txtRojoBold {color: rgba(255, 0, 0, 0.685);font-weight : bold;}
+
+    .txtTransparente {opacity: 0;}
+
+/* +++++++++++++++++++++++++++++++++++ Termina Colores Texto ++++++++++++++++++++++++++++++++++ */
+
+/* +++++++++++++++++++++++++++++++++++ Inicia Tamaños Texto +++++++++++++++++++++++++++++++++++ */
+
+    .txtSize8 {font-size: 8px;}
+
+    .txtSize9 {font-size: 9px;}
+
+    .txtSize10 {font-size: 10px;}
+
+    .txtSize11 {font-size: 11px;}
+
+    .txtSize12 {font-size: 12px;}
+
+    .txtSize13 {font-size: 13px;}
+
+    .txtSize14 {font-size: 14px;}
+
+    .txtSize15 {font-size: 15px;}
+
+    .txtSize16 {font-size: 16px;}
+
+    .txtSize20 {font-size: 20px;}
+
+    .txtSize21 {font-size: 21px;}
+
+    .txtSize22 {font-size: 22px;}
+
+    .txtSize23 {font-size: 23px;}
+
+    .txtSize24 {font-size: 24px;}
+
+/* +++++++++++++++++++++++++++++++++++ Termina Tamaños Texto ++++++++++++++++++++++++++++++++++ */
+
+/* +++++++++++++++++++++++++++++++++++ Grillas ++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+    table {border-collapse: collapse; width: 100%; text-align: center; background:white;}
+
+    th, td {border-bottom: 8px solid #00ac98; font-size: 100%; border: 1px solid #00ac98}
+
+    .table-hover tr:hover {background: #FFB233;}
+
+    .EfectoSombraTabla {box-shadow: 0 0.5em 0.1em 0.05em #00ac98;-webkit-box-shadow: 0 0.25em 1.5em 0.02em #00ac98;
+                        border-radius: 10px; height: 100%;}
+
+    .encabezadotabla  {background-color:#00ac98; color:white; font-size:110%; height: 40px;}
+
+    thead tr th {position: sticky; top: 0; cursor: pointer; -webkit-user-select: none; -moz-user-select: none;
+                -ms-user-select: none; user-select: none; z-index: 10; background-color: #00ac98;
+                border: #00ac98; height: 5%;}
+
+    .EfectoSombraTabla::-webkit-scrollbar {width: 14px; height: 14px;}
+
+    /* Ponemos un color de fondo y redondeamos las esquinas del thumb */
+    .EfectoSombraTabla::-webkit-scrollbar-thumb {background: #FEB86D; border-radius: 6px;}
+
+    /* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+    .EfectoSombraTabla::-webkit-scrollbar-thumb:hover {background: #fa8d18; box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);}
+
+    /* Cambiamos el fondo cuando esté en active */
+    .EfectoSombraTabla::-webkit-scrollbar-thumb:active {background-color: #fa8d18;}
+
+    /* Ponemos un color de fondo y redondeamos las esquinas del track */
+    .EfectoSombraTabla::-webkit-scrollbar-track {background: #7d7e7e; border-radius: 6px;}
+
+    /* Cambiamos el fondo cuando esté en active o hover */
+    .EfectoSombraTabla::-webkit-scrollbar-track:hover,
+    .EfectoSombraTabla::-webkit-scrollbar-track:active {
+        background: rgb(54, 54, 54);
+    }
+
+/* +++++++++++++++++++++++++++++++++++ Termina Grillas ++++++++++++++++++++++++++++++++++++++++ */
+
+/* +++++++++++++++++++++++++++++++++++ Clases Bordes Divs +++++++++++++++++++++++++++++++++++++ */
+.centrarVertical {display: flex;justify-content: center;align-items: center;text-align: center;}
+
+.bordeDivDerecho {border-top: 2px solid black;border-left: 2px solid black;border-bottom: 2px solid black;border-radius: 10px;}
+
+.bordeDivIzquierdo {border-top: 2px solid black;border-right: 2px solid black;border-bottom: 2px solid black;border-radius: 10px;}
+
+.bordeDivSupInferior {border-top: 2px solid black;border-bottom: 2px solid black;border-radius: 10px;}
+
+.bordeSoloIzq {border-left: 2px solid black;border-radius: 10px;}
+
+.bordeSoloDerecho {border-right: 2px solid black;border-radius: 10px;}
+
+.bordeSoloSuperior {border-top: 2px solid black;border-radius: 10px;}
+
+.bordeSoloInferior {border-bottom: 2px solid black;border-radius: 10px;}
+/* +++++++++++++++++++++++++++++++++++ Termina Clases Bordes Divs +++++++++++++++++++++++++++++ */
+
+.centrarVertical {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+label {
+    color: #FFB233;font-weight : bold;
+}
+
+li {
+    color: #ff954e;font-weight : bold;
+}
+
+#formCuadro {
+    border: solid 2px #cad1d1;
+}
