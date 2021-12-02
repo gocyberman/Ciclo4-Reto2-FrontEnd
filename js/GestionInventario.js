@@ -3,21 +3,21 @@ function loadInventarioAll(){
         type:"GET",
         contentType: "application/json; charset=utf-8",
         datatype:"JSON",
-        url:"http://150.230.41.201:80/api/user/all",
+        //url:"http://150.230.41.201:80/api/supplements/all",
+        url:"http://localhost:8080/api/supplements/all",
         success:function(respuesta){
             console.log(respuesta);
-            loadResponseUser(respuesta);
+            loadResponseInv(respuesta);
         }
     });
 }
 
-function loadResponseUser(items){
+function loadResponseInv(items){
     $("tbody").children().remove()
     var tableBody = $('#tblInventario tbody');
     var filaTabla = "";
     for (var i=0; i<items.length; i++) {
         filaTabla += "<tr>";
-        filaTabla += "<td>"+items[i].id+"</td>";
         filaTabla += "<td>"+items[i].reference+"</td>";
         filaTabla += "<td>"+items[i].brand+"</td>";
         filaTabla += "<td>"+items[i].category+"</td>";
@@ -27,7 +27,7 @@ function loadResponseUser(items){
         filaTabla += "<td>"+items[i].price+"</td>";
         filaTabla += "<td>"+items[i].quantity+"</td>";
         filaTabla += "<td>"+items[i].photography+"</td>";
-        filaTabla +="<td> <button class='btn btn-primary btn-sm btnSelect' onclick='passEditItem()'>Editar</button><button style='margin-left: 10px' class='btn btn-danger btn-sm' onclick='deleteItem("+items[i].id+")'>Eliminar</button> </td>";
+        filaTabla +="<td> <button class='btn btn-primary btn-sm btnSelect' onclick='passEditItem()'>Editar</button><button style='margin-left: 10px' class='btn btn-danger btn-sm' onclick='deleteItem("+String(items[i].reference)+")'>Eliminar</button> </td>";
         filaTabla +="</tr>";
     }
     tableBody.append(filaTabla);
@@ -51,9 +51,10 @@ function saveNewItem(username) {
         contentType: "application/json; charset=utf-8",
         data:dataToSend,
         datatype:"JSON",
-        url:"http://150.230.41.201:80/api/supplements/new",
+        //url:"http://150.230.41.201:80/api/supplements/new",
+        url:"http://localhost:8080/api/supplements/new",
         success:function(respuesta){
-            if (respuesta.id != null) {
+            if (respuesta.reference != null) {
                 $("#reference").val("");
                 $("#brand").val("");
                 $("#category").val("");
@@ -63,6 +64,7 @@ function saveNewItem(username) {
                 $("#price").val("");
                 $("#quantity").val("");
                 $("#photography").val("");
+                loadInventarioAll();
                 alert("Se Creo Nuevo Item Exitosamente")
             } else {
                 alert("ERROR - El Item ingresado ya existe, verifique!")
@@ -72,31 +74,29 @@ function saveNewItem(username) {
 }
 
 function passEditItem(){
-    $("#tblUsuarios").on('click','.btnSelect',function(){
+    $("#tblInventario").on('click','.btnSelect',function(){
         // get the current row
         var currentRow=$(this).closest("tr");
-        var col1=currentRow.find("td:eq(0)").text(); // id
-        var col2=currentRow.find("td:eq(1)").text(); // reference
-        var col3=currentRow.find("td:eq(2)").text(); // brand
-        var col4=currentRow.find("td:eq(3)").text(); // category
-        var col5=currentRow.find("td:eq(4)").text(); // objetivo
-        var col6=currentRow.find("td:eq(5)").text(); // description
-        var col7=currentRow.find("td:eq(6)").text(); // availability
-        var col8=currentRow.find("td:eq(7)").text(); // price
-        var col9=currentRow.find("td:eq(8)").text(); // quantity
-        var col10=currentRow.find("td:eq(9)").text(); // photography
+        var col1=currentRow.find("td:eq(0)").text(); // reference
+        var col2=currentRow.find("td:eq(1)").text(); // brand
+        var col3=currentRow.find("td:eq(2)").text(); // category
+        var col4=currentRow.find("td:eq(3)").text(); // objetivo
+        var col5=currentRow.find("td:eq(4)").text(); // description
+        var col6=currentRow.find("td:eq(5)").text(); // availability
+        var col7=currentRow.find("td:eq(6)").text(); // price
+        var col8=currentRow.find("td:eq(7)").text(); // quantity
+        var col9=currentRow.find("td:eq(8)").text(); // photography
         // var data=col1+"\n"+col2+"\n"+col3+"\n"+col4+"\n"+col5;
         // alert(data);
-        $('#id').val(col1);
-        $('#reference').val(col2);
-        $('#brand').val(col3);
-        $('#category').val(col4);
-        $('#objetivo').val(col5);
-        $('#description').val(col6);
-        $('#availability').val(col7);
-        $('#price').val(col8);
-        $('#quantity').val(col9);
-        $('#photography').val(col10);
+        $('#reference').val(col1);
+        $('#brand').val(col2);
+        $('#category').val(col3);
+        $('#objetivo').val(col4);
+        $('#description').val(col5);
+        $('#availability').val(col6);
+        $('#price').val(col7);
+        $('#quantity').val(col8);
+        $('#photography').val(col9);
     });
 }
 
@@ -119,7 +119,8 @@ function saveEditUser(){
         data:dataToSend,
         contentType:"application/JSON",
         datatype:"JSON",
-        url:"http://150.230.41.201:80/api/update",
+        //url:"http://150.230.41.201:80/api/supplements/update",
+        url:"http://localhost:8080/api/supplements/update",
         success:function(respuesta){
             $("#reference").val("");
             $("#brand").val("");
@@ -137,16 +138,12 @@ function saveEditUser(){
 }
 
 function deleteItem(idElemento){
-    let data={
-        id:idElemento
-    };
-    let dataToSend=JSON.stringify(data);
     $.ajax({
         type:"DELETE",
         contentType: "application/json; charset=utf-8",
-        data:dataToSend,
         datatype:"JSON",
-        url:"http://150.230.41.201:80/api/"+idElemento,
+        //url:"http://150.230.41.201:80/api/supplements/"+idElemento,
+        url:"http://localhost:8080/api/supplements/"+idElemento,
         success:function(respuesta){
             $("#resultado").empty();
             loadInventarioAll();

@@ -3,7 +3,8 @@ function loadUserAll(){
         type:"GET",
         contentType: "application/json; charset=utf-8",
         datatype:"JSON",
-        url:"http://150.230.41.201:80/api/user/all",
+        //url:"http://150.230.41.201:80/api/user/all",
+        url:"http://localhost:8080/api/user/all",
         success:function(respuesta){
             console.log(respuesta);
             loadResponseUser(respuesta);
@@ -18,6 +19,7 @@ function loadResponseUser(items){
     for (var i=0; i<items.length; i++) {
         filaTabla += "<tr>";
         filaTabla += "<td>"+items[i].id+"</td>";
+        filaTabla += "<td>"+items[i].identification+"</td>";
         filaTabla += "<td>"+items[i].name+"</td>";
         filaTabla += "<td>"+items[i].address+"</td>";
         filaTabla += "<td>"+items[i].cellPhone+"</td>";
@@ -32,6 +34,7 @@ function loadResponseUser(items){
 
 function saveNewUser(username) {
     let data={
+        id:$("#id").val(),
         identification:$("#identification").val(),
         name:$("#name").val(),
         address:$("#address").val(),
@@ -47,9 +50,11 @@ function saveNewUser(username) {
         contentType: "application/json; charset=utf-8",
         data:dataToSend,
         datatype:"JSON",
-        url:"http://150.230.41.201:80/api/user/new",
+        //url:"http://150.230.41.201:80/api/user/new",
+        url:"http://localhost:8080/api/user/new",
         success:function(respuesta){
             if (respuesta.id != null) {
+                $("#id").val("");
                 $("#identification").val("");
                 $("#name").val("");
                 $("#address").val("");
@@ -58,6 +63,7 @@ function saveNewUser(username) {
                 $("#password").val("");
                 $("#type").val("");
                 $("#zone").val("");
+                loadUserAll();
                 alert("Se Guardo Nuevo Usuario Exitosamente")
             } else {
                 alert("ERROR - El email ingresado ya existe, verifique!")
@@ -71,8 +77,8 @@ function passEditUser(){
         // get the current row
         var currentRow=$(this).closest("tr");
         var col1=currentRow.find("td:eq(0)").text(); // id
-        var col2=currentRow.find("td:eq(1)").text(); // identificación
-        var col3=currentRow.find("td:eq(2)").text(); // nombre
+        var col2=currentRow.find("td:eq(1)").text(); // Identificación
+        var col3=currentRow.find("td:eq(2)").text(); // Nombre
         var col4=currentRow.find("td:eq(3)").text(); // direccion
         var col5=currentRow.find("td:eq(4)").text(); // celular
         var col6=currentRow.find("td:eq(5)").text(); // email
@@ -93,6 +99,7 @@ function passEditUser(){
 
 function saveEditUser(){
     let data={
+        id:$("#id").val(),
         identification:$("#identification").val(),
         name:$("#name").val(),
         address:$("#address").val(),
@@ -109,8 +116,10 @@ function saveEditUser(){
         data:dataToSend,
         contentType:"application/JSON",
         datatype:"JSON",
-        url:"http://150.230.41.201:80/api/user/update",
+        //url:"http://150.230.41.201:80/api/user/update",
+        url:"http://localhost:8080/api/user/update",
         success:function(respuesta){
+            $("#id").val("");
             $("#identification").val("");
             $("#name").val("");
             $("#address").val("");
@@ -135,7 +144,8 @@ function deleteUser(idElemento){
         contentType: "application/json; charset=utf-8",
         data:dataToSend,
         datatype:"JSON",
-        url:"http://150.230.41.201:80/api/user/"+idElemento,
+        //url:"http://150.230.41.201:80/api/user/"+idElemento,
+        url:"http://localhost:8080/api/user/"+idElemento,
         success:function(respuesta){
             $("#resultado").empty();
             loadUserAll();

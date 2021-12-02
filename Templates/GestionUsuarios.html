@@ -58,10 +58,10 @@
             </div>
 
             <div class="col-lg-8 bordeDivRojo EfectoSombraTabla" style=" height: 200px; overflow: scroll;" align="center"> <!-- Columna 4 -->
-                <table id="tblUsuarios" name="tblUsuarios" class="table-hover" style="width:1000px">
+                <table id="tblUsuarios" name="tblUsuarios" class="table-hover" style="width:1600px">
                     <thead>
                         <tr class="encabezadotabla">
-                            <th scope="col" style="display: none;">Id:</th>
+                            <th scope="col">Id:</th>
                             <th scope="col">Identificación:</th>
                             <th scope="col">Nombre:</th>
                             <th scope="col">Dirección:</th>
@@ -88,13 +88,33 @@
         <!-- ************************* Sección - Inputs **************************************************************** -->
         <div class="row g-0">
             <div class="col-lg-3 bordeDivRojo" align="center">
-                <div class="txtNaranjaBold bordeDivRojo" style="width: 40%; height: 25px" align="center">
-                    id oculto:
+
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo" align="center">
+                <div class="txtNaranjaBold bordeDivRojo" style="width: 80%; height: 25px" align="left">
+                    id:
                 </div>
 
-                <div class="bordeDivRojo" style="width: 40%;" align="center">
-                    <input id="id" name="id" class="form-control" type="text" placeholder="ID">
+                <div class="bordeDivRojo" style="width: 80%;" align="center">
+                    <input id="id" name="id" class="form-control" type="number" placeholder="id">
                 </div>
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo" align="center">
+
+            </div>
+
+            <div class="col-lg-3 bordeDivRojo">
+                <!-- Columna 1 Vacia -->
+            </div>
+        </div>
+
+        <div style="margin-bottom: 15px;"></div> <!-- Espacio -->
+
+        <div class="row g-0">
+            <div class="col-lg-3 bordeDivRojo" align="center">
+
             </div>
 
             <div class="col-lg-3 bordeDivRojo" align="center">
@@ -195,50 +215,16 @@
 
             <div class="col-lg-3 bordeDivRojo" align="center">
                 <div class="txtNaranjaBold bordeDivRojo" style="width: 80%; height: 25px" align="left">
-                    Email:
-                </div>
-
-                <div class="bordeDivRojo" style="width: 80%;" align="center">
-                    <input id="email" name="email" class="form-control" type="email" placeholder="Digite Email" required>
-                </div>
-            </div>
-
-            <div class="col-lg-3 bordeDivRojo" align="center">
-                <div class="txtNaranjaBold bordeDivRojo" style="width: 80%; height: 25px" align="left">
-                    Contraseña:
-                </div>
-
-                <div class="bordeDivRojo" style="width: 80%;" align="center">
-                    <input id="password" name="password" class="form-control" type="password" placeholder="Digite la Contraseña" required>
-                    <div class="bordeDivRojo txtBlanco" align="left">
-                        La contraseña debe tener mínimo 6 caracteres
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 bordeDivRojo">
-                <!-- Columna 1 Vacia -->
-            </div>
-        </div>
-
-        <div style="margin-bottom: 15px;"></div> <!-- Espacio -->
-
-        <div class="row g-0">
-            <div class="col-lg-3 bordeDivRojo">
-                <!-- Columna 1 Vacia -->
-            </div>
-
-            <div class="col-lg-3 bordeDivRojo" align="center">
-                <div class="txtNaranjaBold bordeDivRojo" style="width: 80%; height: 25px" align="left">
                     Tipo Usuario:
                 </div>
 
                 <div class="bordeDivRojo" style="width: 80%;" align="center">
-                    <select id="type" name="type" class="form-select form-select-md mb-3" aria-label=".form-select-lg example" required>
+                    <input id="type"  name="type" class="form-control" type="text" placeholder="Digite Nombre" required>
+                    <!-- <select id="type" name="type" class="form-select form-select-md mb-3" aria-label=".form-select-lg example" required>
                         <option value="">--- Seleccione Tipo Usuario ---</option>
                         <option value="CoordinadorZona">Coordinador de Zona</option>
                         <option value="AsesorComercial">Asesor Comercial</option>
-                    </select>
+                    </select> -->
                 </div>
             </div>
 
@@ -248,12 +234,13 @@
                 </div>
 
                 <div class="bordeDivRojo" style="width: 80%;" align="center">
-                    <select id="zone" name="zone" class="form-select form-select-sd mb-3" aria-label=".form-select-lg example" required>
+                    <input id="zone"  name="zone" class="form-control" type="text" placeholder="Digite Nombre" required>
+                    <!-- <select id="zone" name="zone" class="form-select form-select-sd mb-3" aria-label=".form-select-lg example" required>
                         <option value="">--- Seleccione Zona ---</option>
                         <option value="1">ZONA 1</option>
                         <option value="2">ZONA 2</option>
                         <option value="3">ZONA 3</option>
-                    </select>
+                    </select> -->
                 </div>
             </div>
 
@@ -263,7 +250,7 @@
         </div>
         <!-- ************************* Termina Sección - Inputs ******************************************************** -->
 
-        <div style="margin-bottom: 10px;"></div> <!-- Espacio -->
+        <div style="margin-bottom: 25px;"></div> <!-- Espacio -->
 
         <!-- *************************** Sección - Botones ************************************************************* -->
         <div class="row g-0 bordeDivRojo">
